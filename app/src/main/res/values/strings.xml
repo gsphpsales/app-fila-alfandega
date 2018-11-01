@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Fila Alfandega</string>
     <string name="setadescription">indicação de sentido</string>
-    <string name="texto">Texto aqui</string>
+    <string name="texto">Toque na tela para iniciar.</string>
 </resources>

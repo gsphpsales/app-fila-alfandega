@@ -10,6 +10,8 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imagem;
     TextView texto;
+
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +23,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void click(View view){
-        texto.setText("Toque aqui para continuar");
-        imagem.setScaleX(-1f);
+        if(Math.random()<0.5) {
 
+            texto.setText("Siga para Esquerda");
+            imagem.setScaleX(1f);
+        }else {
+
+            texto.setText("Siga para Direita");
+            imagem.setScaleX(-1f);
+
+        }
     }
 }
