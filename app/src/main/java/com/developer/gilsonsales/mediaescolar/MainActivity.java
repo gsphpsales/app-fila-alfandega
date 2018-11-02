@@ -8,6 +8,9 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView imagem;
@@ -81,5 +84,12 @@ public class MainActivity extends AppCompatActivity {
 
         }
         imagem.startAnimation(show);
+        //objeto timer para disparar a função sumir (vanish)
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+            imagem.startAnimation(vanish);
+            }
+        }, 2000);
     }
 }
