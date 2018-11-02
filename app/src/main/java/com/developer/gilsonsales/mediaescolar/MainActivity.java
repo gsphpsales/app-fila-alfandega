@@ -3,6 +3,8 @@ package com.developer.gilsonsales.mediaescolar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,15 +12,60 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imagem;
     TextView texto;
+    Animation show;
+    Animation vanish;
 
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imagem = findViewById(R.id.seta);
         texto = findViewById(R.id.info);
+        imagem.setVisibility(View.INVISIBLE);
 
+        show = new AlphaAnimation(0,1);
+        vanish = new AlphaAnimation(1,0);
+
+        show.setDuration(500);
+        vanish.setDuration(500);
+
+        show.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                imagem.setVisibility(View.VISIBLE);
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                imagem.setVisibility(View.VISIBLE);
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        vanish.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                imagem.setVisibility(View.VISIBLE);
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                imagem.setVisibility(View.INVISIBLE);
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
 
     }
 
@@ -33,5 +80,6 @@ public class MainActivity extends AppCompatActivity {
             imagem.setScaleX(-1f);
 
         }
+        imagem.startAnimation(show);
     }
 }
